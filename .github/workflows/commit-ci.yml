@@ -1,6 +1,9 @@
-name: Commit
-on: [push]
-
+name: commit ci
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - '*'
 env:
   CI_NAME: Commit CI
 jobs:
