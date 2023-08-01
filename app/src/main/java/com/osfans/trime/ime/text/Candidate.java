@@ -239,7 +239,6 @@ public class Candidate extends View {
     if (candidates == null) return;
     super.onDraw(canvas);
 
-    boolean moveAllCandidatesDown = false;
     for (ComputedCandidate computedCandidate : computedCandidates) {
       int i = computedCandidates.indexOf(computedCandidate);
       // Draw highlight
@@ -255,8 +254,7 @@ public class Candidate extends View {
                 - (candidatePaint.ascent() + candidatePaint.descent()) / 2;
         if (shouldShowComment) {
           String comment = ((ComputedCandidate.Word) computedCandidate).getComment();
-          moveAllCandidatesDown |= comment != null && !comment.isEmpty();
-          if (moveAllCandidatesDown) wordY += commentHeight / 2.0f;
+          wordY += commentHeight / 2.0f;
           if (comment != null && !comment.isEmpty()) {
             float commentX = computedCandidate.getGeometry().centerX();
             float commentY =
@@ -270,6 +268,8 @@ public class Candidate extends View {
             }
             commentPaint.setColor(isHighlighted(i) ? hilitedCommentTextColor : commentTextColor);
             GraphicUtils.drawText(canvas, comment, commentX, commentY, commentPaint, commentFont);
+          } else if (!isCommentOnTop) {
+            wordY -= commentHeight / 2.0f;
           }
         }
         String word = ((ComputedCandidate.Word) computedCandidate).getWord();
