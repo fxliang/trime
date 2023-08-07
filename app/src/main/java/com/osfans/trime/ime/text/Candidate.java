@@ -28,6 +28,7 @@ import android.graphics.Typeface;
 import android.graphics.drawable.PaintDrawable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
@@ -270,6 +271,11 @@ public class Candidate extends View {
         float arrowX =
             computedCandidate.getGeometry().centerX()
                 - GraphicUtils.measureText(symbolPaint, arrow, symbolFont) / 2;
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        int screenWidth = displayMetrics.widthPixels;
+        if (arrowX < screenWidth - GraphicUtils.measureText(symbolPaint, arrow, symbolFont))
+          arrowX = screenWidth - GraphicUtils.measureText(symbolPaint, arrow, symbolFont);
         float arrowY =
             computedCandidates.get(0).getGeometry().centerY()
                 - (candidatePaint.ascent() + candidatePaint.descent()) / 2;
