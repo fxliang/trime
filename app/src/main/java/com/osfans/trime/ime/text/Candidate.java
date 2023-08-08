@@ -272,7 +272,9 @@ public class Candidate extends View {
             computedCandidate.getGeometry().centerX()
                 - GraphicUtils.measureText(symbolPaint, arrow, symbolFont) / 2;
         DisplayMetrics displayMetrics = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        WindowManager windowManager =
+            (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        windowManager.getDefaultDisplay().getMetrics(displayMetrics);
         int screenWidth = displayMetrics.widthPixels;
         if (arrowX < screenWidth - GraphicUtils.measureText(symbolPaint, arrow, symbolFont))
           arrowX = screenWidth - GraphicUtils.measureText(symbolPaint, arrow, symbolFont);
