@@ -81,7 +81,7 @@ public class Candidate extends View {
   private int commentTextColor, hilitedCommentTextColor;
   private int candidateViewHeight, commentHeight, candidateSpacing, candidatePadding;
   private boolean shouldShowComment = true, isCommentOnTop, candidateUseCursor;
-  private int candidateTextOffsetY;
+  private int candidateTextOffsetY, commentTextOffsetY;
 
   @NonNull
   private AppPrefs getAppPrefs() {
@@ -107,6 +107,8 @@ public class Candidate extends View {
     commentHeight = (int) DimensionsKt.dp2px(theme.style.getFloat("comment_height"));
     candidateTextOffsetY =
         (int) DimensionsKt.dp2px(theme.style.getFloat("candidate_text_offset_y"));
+    commentTextOffsetY =
+        (int) DimensionsKt.dp2px(theme.style.getFloat("comment_text_offset_y"));
 
     candidateFont = FontManager.getTypeface(theme.style.getString("candidate_font"));
     commentFont = FontManager.getTypeface(theme.style.getString("comment_font"));
@@ -270,7 +272,7 @@ public class Candidate extends View {
               wordX -= commentWidth / 2.0f;
               wordY -= commentHeight / 2.0f;
             } else {
-              commentY += candidateTextOffsetY;
+              commentY += commentTextOffsetY;
             }
             commentPaint.setColor(isHighlighted(i) ? hilitedCommentTextColor : commentTextColor);
             GraphicUtils.drawText(canvas, comment, commentX, commentY, commentPaint, commentFont);
