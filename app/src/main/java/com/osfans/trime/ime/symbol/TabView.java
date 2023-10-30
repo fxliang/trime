@@ -76,7 +76,8 @@ public class TabView extends View {
     int candidateTextSize = (int) DimensionsKt.dp2px(theme.style.getFloat("candidate_text_size"));
     candidateViewHeight = (int) DimensionsKt.dp2px(theme.style.getFloat("candidate_view_height"));
 
-    candidateTextOffsetY = (int) DimensionsKt.dp2px(theme.style.getFloat("candidate_text_offset_y"));
+    candidateTextOffsetY =
+        (int) DimensionsKt.dp2px(theme.style.getFloat("candidate_text_offset_y"));
 
     candidateFont = FontManager.getTypeface(theme.style.getString("candidate_font"));
 

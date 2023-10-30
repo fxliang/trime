@@ -20,9 +20,6 @@ package com.osfans.trime.ime.text;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-//import android.content.res.Configuration;
-//import android.util.DisplayMetrics;
-//import com.osfans.trime.ime.core.Preferences;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -108,8 +105,8 @@ public class Candidate extends View {
     int comment_text_size = (int) DimensionsKt.sp2px(theme.style.getFloat("comment_text_size"));
     candidateViewHeight = (int) DimensionsKt.dp2px(theme.style.getFloat("candidate_view_height"));
     commentHeight = (int) DimensionsKt.dp2px(theme.style.getFloat("comment_height"));
-    candidateTextOffsetY = (int) DimensionsKt.dp2px(theme.style.getFloat("candidate_text_offset_y"));
-
+    candidateTextOffsetY =
+        (int) DimensionsKt.dp2px(theme.style.getFloat("candidate_text_offset_y"));
 
     candidateFont = FontManager.getTypeface(theme.style.getString("candidate_font"));
     commentFont = FontManager.getTypeface(theme.style.getString("comment_font"));
