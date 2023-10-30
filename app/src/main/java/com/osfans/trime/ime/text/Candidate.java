@@ -107,8 +107,7 @@ public class Candidate extends View {
     commentHeight = (int) DimensionsKt.dp2px(theme.style.getFloat("comment_height"));
     candidateTextOffsetY =
         (int) DimensionsKt.dp2px(theme.style.getFloat("candidate_text_offset_y"));
-    commentTextOffsetY =
-        (int) DimensionsKt.dp2px(theme.style.getFloat("comment_text_offset_y"));
+    commentTextOffsetY = (int) DimensionsKt.dp2px(theme.style.getFloat("comment_text_offset_y"));
 
     candidateFont = FontManager.getTypeface(theme.style.getString("candidate_font"));
     commentFont = FontManager.getTypeface(theme.style.getString("comment_font"));
