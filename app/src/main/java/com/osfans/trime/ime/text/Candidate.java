@@ -266,12 +266,11 @@ public class Candidate extends View {
             if (!isCommentOnTop) {
               float commentWidth = GraphicUtils.measureText(commentPaint, comment, commentFont);
               commentX = computedCandidate.getGeometry().right - commentWidth / 2;
-              commentY +=
-                  candidateTextOffsetY
-                      + computedCandidates.get(0).getGeometry().bottom
-                      - commentHeight;
+              commentY += computedCandidates.get(0).getGeometry().bottom - commentHeight;
               wordX -= commentWidth / 2.0f;
               wordY -= commentHeight / 2.0f;
+            } else {
+              commentY += candidateTextOffsetY;
             }
             commentPaint.setColor(isHighlighted(i) ? hilitedCommentTextColor : commentTextColor);
             GraphicUtils.drawText(canvas, comment, commentX, commentY, commentPaint, commentFont);
