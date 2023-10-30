@@ -290,6 +290,7 @@ public class Candidate extends View {
                 - GraphicUtils.measureText(symbolPaint, arrow, symbolFont) / 2;
         float arrowY =
             computedCandidates.get(0).getGeometry().centerY()
+                + candidateTextOffsetY
                 - (candidatePaint.ascent() + candidatePaint.descent()) / 2;
         symbolPaint.setColor(isHighlighted(i) ? hilitedCommentTextColor : commentTextColor);
         canvas.drawText(arrow, arrowX, arrowY, symbolPaint);
