@@ -38,6 +38,9 @@ class GeneralStyleMapper(
         val commentHeight = getInt("comment_height")
 
         val commentOnTop = getBoolean("comment_on_top")
+
+        val floatCandidateTextPosition = getBoolean("float_candidate_text_position")
+
         val secondTextPosition =
             runCatching {
                 val s = getString("comment_position")
@@ -162,6 +165,7 @@ class GeneralStyleMapper(
             commentFont,
             commentHeight,
             commentOnTop,
+            floatCandidateTextPosition,
             secondTextPosition,
             commentTextSize,
             hanbFont,

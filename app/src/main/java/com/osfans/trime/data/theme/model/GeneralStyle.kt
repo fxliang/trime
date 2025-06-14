@@ -21,6 +21,7 @@ data class GeneralStyle(
     val commentFont: List<String>,
     val commentHeight: Int,
     val commentOnTop: Boolean,
+    val floatCandidateTextPosition: Boolean,
     val commentPosition: SecondTextPosition,
     val commentTextSize: Float,
     val hanbFont: List<String>,
